@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎉 H.B.D 🎉</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://i.pinimg.com/736x/52/40/0c/52400c5c9be9f9df5f9104c1627791fd.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.35);
+    z-index: 1;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    margin: 40px auto 60px auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px #000;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 0;
+    text-shadow: 2px 2px 6px #000;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    border: 3px solid #fff;
+    border-radius: 12px;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(255,255,255,0.8);
+}
+
+#message {
+    margin-top: 25px;
+    font-size: 22px;
+    display: none;
+    background: rgba(255,255,255,0.2);
+    padding: 15px 25px;
+    border-radius: 15px;
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+#message.show {
+    display: block;
+    opacity: 1;
+}
+
+.heart, .balloon {
+    position: fixed;
+    z-index: 3;
+    animation-timing-function: linear;
+}
+
+.heart {
+    color: red;
+    font-size: 25px;
+    animation: floatHeart 5s linear infinite;
+}
+
+.balloon {
+    color: #ff69b4;
+    font-size: 25px;
+    animation: floatBalloon 7s linear infinite;
+}
+
+@keyframes floatHeart {
+    0% {transform: translateY(100vh) rotate(0deg);}
+    100% {transform: translateY(-10vh) rotate(360deg);}
+}
+
+@keyframes floatBalloon {
+    0% {transform: translateY(100vh);}
+    100% {transform: translateY(-20vh);}
+}
+
+#musicBtn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #ff69b4;
+    color: white;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>𝓔 𝓜 𝓐 𝓝  </h1>
+    <h2>🎀8-4-2005🎀</h2>
+
+    <div class="gallery">
+        <img src="cake.jpeg" onclick="showMessage('وَرَأَيتُ بَابَ الدَارِ يَحْضُن زهرةً فعرفت أنَّكِ مَن سَكنتِ الدار💖ا!')">
+        <img src="WhatsApp Image 2026-04-08 at 12.20.12 AM (2).jpeg" onclick="showMessage('لقيتك في مساعي العمر صدفه صدفه تساوي العمر كله💌ّا ')">
+        <img src="WhatsApp Image 2026-04-08 at 12.20.12 AM.jpeg" onclick="showMessage('💝ان كان للزمن صدفه فانتي اروعها وان كان يحمل معه خيرا فانتي كله')">
+        <img src="WhatsApp Image 2026-04-08 at 12.37.50 AM (1).jpeg" onclick="showMessage(' فشاربُ الخمرِ يصحو بعد سكرتِهِ، وشاربُ الحبِّ طولَ العمرِ سكرانُ 💞ا')">
+        <img src="WhatsApp Image 2026-04-08 at 12.37.50 AM (2).jpeg" onclick="showMessage('فأذا وقفت امام حسنك صامتا فالصمت في حرم الجمال جمال 💗ا')">
+        <img src="WhatsApp Image 2026-04-08 at 12.42.56 AM.jpeg" onclick="showMessage('قالوا: ضحكتَ؟ فقلتُ: كبَّلهُ الهوى.. فإذا تَبسّمَ صرَّحَ المكتوما ما الحبُّ إلا أن تهشَّ لِمن ترى.. وتظنَّ فيهِ مِنَ السرورِ نعيما💞ا')">
+        <img src="WhatsApp Image 2026-04-06 at 9.59.11 PM.jpeg" onclick="showMessage('احبك اكثر مما احب حياتي  واكثر مما تظنين اني احبك يا امراه تسكن القلب والروح وتغسل بالحب كل الذنوبي💌ا')">
+        <img src="WhatsApp Image 2026-04-08 at 12.37.49 AM.jpeg" onclick="showMessage('افتحي الباب يحلوه 😂ا')">
+        <img src="https://i.pinimg.com/736x/1e/22/cd/1e22cdefde390fd9ad4330519f2a72b8.jpg" onclick="showCake()">
+    </div>
+
+    <div id="message"></div>
+</div>
+
+<audio id="bgMusic" autoplay loop>
+  <source src="01.Bahebik.mp3" type="audio/mpeg">
+</audio>
+<button id="musicBtn">كتم/تشغيل الموسيقى</button>
+
+<script>
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+musicBtn.addEventListener("click", () => {
+    if(music.paused) music.play();
+    else music.pause();
+});
+
+function createHeart() {
+    let heart = document.createElement("div");
+    heart.innerHTML = "❤️𝓛𝓸𝓿𝓮❤️";
+    heart.classList.add("heart");
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 10 + 15 + "px";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 300);
+
+function createBalloon() {
+    let balloon = document.createElement("div");
+    balloon.innerHTML = Math.random() > 0.5 ? "🎈" : "🎉";
+    balloon.classList.add("balloon");
+    balloon.style.left = Math.random() * 100 + "vw";
+    balloon.style.fontSize = Math.random() * 20 + 50 + "px";
+    balloon.style.animationDuration = (4 + Math.random() * 4) + "s";
+    document.body.appendChild(balloon);
+    setTimeout(() => balloon.remove(), 7000);
+}
+setInterval(createBalloon, 500);
+
+function showMessage(msg) {
+    const messageDiv = document.getElementById("message");
+    // امسح أي رسالة قديمة فورًا
+    messageDiv.classList.remove("show");
+    messageDiv.style.display = "none";
+    clearTimeout(messageDiv.timeoutId);
+
+    // اعرض الرسالة الجديدة
+    messageDiv.innerHTML = msg;
+    messageDiv.style.display = "block";
+    messageDiv.classList.add("show");
+
+    // خليها تختفي بعد 20 ثانية
+    messageDiv.timeoutId = setTimeout(() => {
+        messageDiv.classList.remove("show");
+        messageDiv.style.display = "none";
+    }, 20000);
+}
+
+function showCake() {
+    const gallery = document.querySelector(".gallery");
+    gallery.innerHTML = `
+    <img src="cake.jpeg" 
+         style="width:100%;height:350px;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,0.6);">
+    <div style="margin-top:15px;font-size:26px;">
+    لِعَينَيكِ ما يَلقى الفُؤادُ وَما لَقي وَلِلحُبِّ ما لم يَبقَ مِنّي وَما بَقي وَما كُنتُ مِمَّن يَدخُلُ العِشقُ قَلبَهُ وَلَكِنَّ مَن يُبصِر جُفونَكِ يَعشَقِ وَبَينَ الرِضا وَالسُخطِ وَالقُربِ وَالنَوى مَجالٌ لِدَمعِ المُقلَةِ المُتَرَقرِقِ وَأَحلى الهَوى ما شَكَّ في الوَصلِ رَبُّهُ وَفي الهَجرِ فَهوَ الدَهرَ يُرجو وَيُتَّقي وَغَضبى مِنَ الإِدلالِ سَكرى مِنَ الصِبا شَفَعتُ إِلَيها مِن شَبابي بِرَيِّقِ
+
+        </div>`;
+}
+</script>
+
+</body>
+</html>
